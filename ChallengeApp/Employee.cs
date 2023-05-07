@@ -16,14 +16,33 @@ public class Employee
 
     public float Result => grades.Sum();
 
-    public void AddGrade(float number)
+    public void AddGrade(float grade)
     {
-        grades.Add(number);
+        if (grade >= 0 && grade <= 100)
+        {
+            grades.Add(grade);
+        }
+        else
+        {
+            Console.WriteLine("Invalid grade value");
+        }
     }
 
-    public void SubtractGrade(float number)
+    public void AddGrade(string grade)
     {
-        grades.Add(-number);
+        if (float.TryParse(grade, out float result))
+        {
+            AddGrade(result);
+        }
+        else
+        {
+            Console.WriteLine("String is not float");
+        }
+    }
+    public void AddGrade(double grade)
+    {
+        var fromDoubleGrade = (float)grade;
+        AddGrade(fromDoubleGrade);
     }
 
     public Statistics GetStatistics()

@@ -11,11 +11,10 @@ public class StatisticsTests
         employee.AddGrade(4);
         //act
         var statistics = employee.GetStatistics();
-        var maxStat = statistics.Max;
         //assert
-        Assert.AreEqual(15, maxStat);
+        Assert.AreEqual(15, statistics.Max);
     }
-    
+
     [Test]
     public void MinValueForEmployee()
     {
@@ -25,21 +24,21 @@ public class StatisticsTests
         employee.AddGrade(4);
         //act
         var statistics = employee.GetStatistics();
-        var minStat = statistics.Min;
         //assert
-        Assert.AreEqual(4, minStat);
+        Assert.AreEqual(4, statistics.Min);
     }
+
     [Test]
     public void AverageValueForEmployee()
     {
         //arrange
         var employee = new Employee("Wojtek", "Pugowski");
-        employee.AddGrade(14);
-        employee.AddGrade(4);
+        employee.AddGrade(2);
+        employee.AddGrade(2);
+        employee.AddGrade(6);
         //act
         var statistics = employee.GetStatistics();
-        var aveStat = statistics.Average;
         //assert
-        Assert.AreEqual(9, aveStat);
+        Assert.AreEqual(Math.Round(3.33,2), Math.Round(statistics.Average, 2));
     }
 }
