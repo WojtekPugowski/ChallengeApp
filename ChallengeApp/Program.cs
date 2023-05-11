@@ -10,7 +10,15 @@ while (true)
     Console.WriteLine("Podaj kolejna ocenę pracownika: ");
     var input = (Console.ReadLine()).ToUpper();
     if(input == "Q") break;
-    employee.AddGrade(input);
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception: {e.Message}");
+    }
+  
 
 }
 
