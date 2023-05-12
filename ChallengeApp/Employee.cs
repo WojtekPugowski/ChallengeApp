@@ -1,19 +1,17 @@
 namespace ChallengeApp;
 
-public class Employee
+public class Employee : Person
 {
     private List<float> grades = new List<float>();
 
-    public Employee(){}
-    public Employee(string name, string surename)
+    public Employee() : this("no name", "no surname", "no gender")
     {
-        Name = name;
-        Surname = surename;
     }
 
-    public string Name { get; private set; }
-    public string Surname { get; private set; }
-    private int Age { get; set; }
+    public Employee(string name, string surname, string gender) : base(name, surname, gender)
+    {
+    }
+
 
     public float Result => grades.Sum();
 
@@ -81,7 +79,7 @@ public class Employee
                 break;
             default:
                 statistics.AverageLetter = 'E';
-                break; 
+                break;
         }
 
         return statistics;

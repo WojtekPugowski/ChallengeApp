@@ -6,8 +6,8 @@ public class TypeReferenceTest
     public void Test1()
     {
         //arrange
-        var employee1 = new Employee("Wojtek", "Pugowski");
-        var employee2 = new Employee("Monika", "Pugowska");
+        var employee1 = new Employee("Wojtek", "Pugowski", "M");
+        var employee2 = new Employee("Monika", "Pugowska", "F");
 
         //act
         //assert
@@ -18,16 +18,16 @@ public class TypeReferenceTest
     public void Test2()
     {
         //arrange
-        var employee1 = new Employee("Wojtek", "Pugowski");
-        var employee2 = new Employee("Wojtek", "Pugowski");
+        var employee1 = new Employee("Wojtek", "Pugowski", "M");
+        var employee2 = new Employee("Wojtek", "Pugowski", "M");
 
         //act
         //assert
         Assert.AreEqual(employee1.ToString(), employee2.ToString());
     }
 
-    private Employee GetEmployee(string name, string surname)
+    private Employee GetEmployee(string name, string surname, string gender)
     {
-        return new Employee(name, surname);
+        return new Employee(name, surname, gender);
     }
 }
