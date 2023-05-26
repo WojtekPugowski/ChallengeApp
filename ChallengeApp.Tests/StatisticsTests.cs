@@ -6,7 +6,7 @@ public class StatisticsTests
     public void MaxValueForEmployee()
     {
         //arrange
-        var employee = new Employee("Wojtek", "Pugowski", "M");
+        var employee = new EmployeeInMemory("Wojtek", "Pugowski", "M");
         employee.AddGrade(15);
         employee.AddGrade(4);
         //act
@@ -19,7 +19,7 @@ public class StatisticsTests
     public void MinValueForEmployee()
     {
         //arrange
-        var employee = new Employee("Wojtek", "Pugowski", "M");
+        var employee = new EmployeeInMemory("Wojtek", "Pugowski", "M");
         employee.AddGrade(15);
         employee.AddGrade(4);
         //act
@@ -32,7 +32,7 @@ public class StatisticsTests
     public void AverageValueForEmployee()
     {
         //arrange
-        var employee = new Employee("Wojtek", "Pugowski", "M");
+        var employee = new EmployeeInMemory("Wojtek", "Pugowski", "M");
         employee.AddGrade(2);
         employee.AddGrade(2);
         employee.AddGrade(6);

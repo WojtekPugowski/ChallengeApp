@@ -1,6 +1,6 @@
 namespace ChallengeApp;
 
-public class Person
+public abstract class Person
 {
     public Person(string name, string surname, string gender)
     {
@@ -11,5 +11,8 @@ public class Person
     public string Name { get; private set; }
     public string Surname { get; private set; }
     public string Gender { get; private set; }
-
+    public Statistics GetStatistics()
+    {
+        throw new NotImplementedException();
+    }
 }

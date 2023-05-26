@@ -1,29 +1,70 @@
 ﻿using ChallengeApp;
 
-Console.WriteLine("Witaj w programie oceny pracownika");
-Console.WriteLine("==================================\n");
+Console.WriteLine("===========================================");
+Console.WriteLine();
+// Console.WriteLine("Podaj dane pracownika: ");
+//Console.WriteLine("Wpisz imię: ");
+//var name = Console.ReadLine();
+//Console.WriteLine("Wpisz nazwisko: ");
+//var surname = Console.ReadLine();
+//Console.WriteLine("Wpisz płeć (K/M): ");
+//var sex = Console.ReadLine();
 
-var employee = new Employee();
+var employee = new EmployeeInFile("Woj", "Tek", "M");
+employee.GradeAdded += EmployeeGradeAdded;
 
-while (true)
+void EmployeeGradeAdded(object sender, EventArgs args)
 {
-    Console.WriteLine("Podaj kolejna ocenę pracownika: ");
-    var input = (Console.ReadLine()).ToUpper();
-    if(input == "Q") break;
-    try
-    {
-        employee.AddGrade(input);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine($"Exception: {e.Message}");
-    }
-  
-
+    Console.WriteLine("Dodano nową ocenę");
 }
 
-var stat = employee.GetStatistics();
-Console.WriteLine($" Ocena max: {stat.Max}");
-Console.WriteLine($" Ocena min: {stat.Min}");
-Console.WriteLine($" Ocena średnia: {stat.Average}");
-Console.WriteLine($" Ocena literowa: {stat.AverageLetter}");
+employee.AddGrade(5f);
+employee.AddGrade(10f);
+employee.AddGrade("a");
+
+
+Console.WriteLine();
+var statisticsEmployeeInFile = employee.GetStatistics();
+Console.WriteLine($"Average: {statisticsEmployeeInFile.Average}");
+Console.WriteLine($"Min: {statisticsEmployeeInFile.Min}");
+Console.WriteLine($"Max: {statisticsEmployeeInFile.Max}");
+Console.WriteLine($"AverageLetter: {statisticsEmployeeInFile.AverageLetter}");
+
+//Console.WriteLine("Podaj ocenę pracownika: ");
+//var input = Console.ReadLine();
+
+//try
+//{
+//    employee.AddGrade(input);
+//}
+//catch (Exception e)
+//{
+//    Console.WriteLine($"Exception catched: {e.Message}");
+//}
+
+//while (true)
+//{
+//    Console.WriteLine("Podaj kolejną ocenę pracownika (jeśli chcesz wyjść naciśnij 'q'): ");
+//    input = Console.ReadLine();
+//    if (input == "q")
+//    {
+//        Console.WriteLine("Oto wyniki podanego pracownika: "); 
+//        break;        
+//    }
+
+//    try
+//    {
+//        employee.AddGrade(input);
+//    }
+//    catch (Exception e)
+//    {
+//        Console.WriteLine($"Exception catched: {e.Message}");
+//    }
+
+//}
+
+// var statistics = employee.GetStatistics();
+// Console.WriteLine($"Average: {statistics.Average}");
+// Console.WriteLine($"Min: {statistics.Min}");
+// Console.WriteLine($"Max: {statistics.Max}");
+// Console.WriteLine($"AverageLetter: {statistics.AverageLetter}");

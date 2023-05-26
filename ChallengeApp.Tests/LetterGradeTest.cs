@@ -6,7 +6,7 @@ public class LetterGradeTest
     public void LetterGradeEmployeeFromAverage()
     {
         //arrange
-        var employee = new Employee();
+        var employee = new EmployeeInMemory("Woj", "Tek", "M");
         employee.AddGrade(30);
         employee.AddGrade(20);
         //act

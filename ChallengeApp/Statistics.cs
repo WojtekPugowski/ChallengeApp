@@ -1,9 +1,23 @@
-namespace ChallengeApp;
-
-public class Statistics
+namespace ChallengeApp
 {
-    public float Max { get; set; }
-    public float Min { get; set; }
-    public float Average { get; set; }
-    public char AverageLetter { get; set; }
+    public class Statistics
+    {
+        public float Min { get; private set; }
+        public float Max { get; private set; }
+        public int Count { get; private set; }
+        public float Sum { get; private set; }
+        public float Average { get; private set; }
+        public char AverageLetter { get; private set; }
+
+        public Statistics()
+        {
+            
+        }
+
+        public void AddGrade()
+        {
+            
+        }
+    }
+    
 }
